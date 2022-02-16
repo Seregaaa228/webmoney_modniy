@@ -1,0 +1,68 @@
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Webmoney</title>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/templatemo-diagoona.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{url_for('static', filename='fontawesome/css/all.min.css')}}">
+
+</head>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="notification is-danger">
+    {{messages[0]}}.<a href="/pages/add/">Пополните счет</a> для дальнейших действий
+</div>
+{% endif %}
+{% endwith %}
+
+
+<nav class="navbar navbar-expand-sm ">
+    <a href="/"><i class="fas fa-coins fa-3x mt-1 tm-logo"></i> </a>
+    <h2 class="tm-sitename text-uppercase">Webmoney</h2>
+
+
+    <ul class="navbar-nav ml-auto">
+
+            <a href="{{ url_for('api_blueprint.pages_blueprint.cabinet') }}" class="nav-link tm-nav-link">
+                My cabinet
+            </a>
+
+    </ul>
+
+</nav>
+<div style="text-align:center">
+    <div class="tm-row pt-5">
+        <div class="tm-col-center-form">
+            <div align="center">
+                <h1> Перевод средств:</h1>
+            </div>
+            <form method="POST" action="/user/transfer/">
+
+                <div class="field">
+                    <div class="control">
+                        <select name="sender_bill_id">
+                            {%for i in bills%}
+                            <option value="{{i[0]}}">{{i[0]}}</option>
+                            {%endfor%}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-large" type="receiver" name="receiver" placeholder="Receiver bill id">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-large" type="money" name="money" placeholder="Enter ammount">
+                    </div>
+                </div>
+                <button class="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

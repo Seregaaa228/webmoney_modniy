@@ -1,0 +1,96 @@
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Webmoney</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/templatemo-diagoona.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet"/>
+    <!-- https://fonts.google.com/ -->
+    <link rel="stylesheet" href="{{url_for('static', filename='fontawesome/css/all.min.css')}}">
+    <style>
+    .button {
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #1A1A1A;
+    border-radius: 89px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color
+    Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 12px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 60px;
+    min-width: 0;
+    outline: none;
+    padding: 36px 14px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    will-change: transform;
+    }
+
+    .button:disabled {
+    pointer-events: none;
+    }
+
+    .button:hover {
+    color: #fff;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+    }
+
+    .button:active {
+    box-shadow: none;
+    transform: translateY(0);
+    }
+
+    .div1 {
+    font-size: 132px;
+    position: absolute;
+    top: 160px;
+    font-family: Impact;
+    left: 785px;
+
+    }
+
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm ">
+    <a href="/"><i class="fas fa-coins fa-3x mt-1 tm-logo"></i> </a>
+    <h2 class="tm-sitename text-uppercase" id="webmon">Webmoney</h2>
+
+    <ul class="navbar-nav ml-auto">
+        <a href="{{ url_for('api_blueprint.auth_blueprint.logout') }}" class="nav-link">
+            Logout
+        </a>
+    </ul>
+
+</nav>
+<div class="tm-site-header media">
+    <div style="font-family: DejaVu Sans Mono">
+        <ul style="font-size:85px;">ID - {{id}}</ul>
+        <ul style="font-size:85px;">LOGIN - {{login}}</ul>
+        <ul style="font-size:85px;">BALANCE - {{balance}}</ul>
+        <form action="/user/change-password">
+            <button class="button">Сменить пароль</button>
+        </form>
+        <form action="/user/delete-user">
+            <button class="button">Удалить пользователя</button>
+        </form>
+
+    </div>
+</div>
+</body>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Webmoney</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/templatemo-diagoona.css')}}">
+
+</head>
+
+<body>
+
+
+<nav class="navbar navbar-expand-sm ">
+
+    <ul class="navbar-nav ml-auto">
+
+        <a href="{{ url_for('api_blueprint.auth_blueprint.login') }}" class=" nav-link">
+            Login
+        </a>
+        <a href="{{ url_for('api_blueprint.auth_blueprint.signup') }}" class=" nav-link">
+            Sign Up
+        </a>
+
+    </ul>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-0 mx-auto">
+            <div class="container has-text-centered">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="padding: 210px;">
+    <div style="text-align:center">
+        <h3 style="font-size:42px;" class="title">LOGIN</h3>
+
+        <div class="box">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="notification is-danger">
+                {{ messages[0] }}
+            </div>
+            {% endif %}
+            {% endwith %}
+            <form method="POST" action="login">
+                <form method="POST" action="/login">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-large" style="font-size:32px;" type="name" name="name"
+                                   placeholder="Логин" autofocus="">
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="field">
+                        <div class="control">
+                            <input class="input is-large" style="font-size:32px;" type="password" name="password"
+                                   placeholder="Пароль">
+                        </div>
+                    </div>
+
+                    <button class="button is-block is-info is-large is-fullwidth ">Войти</button>
+                </form>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
